@@ -12,13 +12,23 @@ import {
 import { useState } from "react";
 
 export default function Hero_Section() {
-  const [selected, setSelected] = useState(null);
+  type Review = {
+    id: number;
+    image: string;
+    name: string;
+    location: string;
+    review: string;
+    rating: number;
+  };
+
+  const [selected, setSelected] = useState<Review | null>(null);
   const [open, setOpen] = useState(false);
 
-  const handleOpen = (review) => {
+  const handleOpen = (review: Review) => {
     setSelected(review);
     setOpen(true);
   };
+  
 
   const reviews = [
     {
